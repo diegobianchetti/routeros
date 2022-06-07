@@ -1,0 +1,11 @@
+[mikrotik]
+192.168.128.101
+192.168.128.45
+
+[mikrotik:vars]
+ansible_user=admin
+ansible_ssh_pass=teste123
+ansible_connection=ansible.netcommon.network_cli
+ansible_network_os=community.routeros.routeros
+ansible_python_interpreter=/usr/bin/python3
+ansible_command_timeout=120
