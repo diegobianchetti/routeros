@@ -1,6 +1,5 @@
 ---
-- name: RouterOS test with network_cli connection
-  hosts: mikrotik
+- hosts: mikrotik
   gather_facts: false
   tasks:
     - name: Run a command
