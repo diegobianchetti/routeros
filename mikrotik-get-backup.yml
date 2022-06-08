@@ -31,6 +31,5 @@
         ansible.builtin.fetch:
           content: "{{ export.stdout }}"
           dest: "$HOME/{{ inventory_hostname }}.config"
-          backup: yes
         when: export is defined
-        delegate_to: localhost
+        delegate_to: 127.0.0.1
