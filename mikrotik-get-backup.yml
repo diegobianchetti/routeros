@@ -32,4 +32,3 @@
           content: "{{ export.stdout }}"
           dest: "/tmp/tt/{{ inventory_hostname }}.config"
         when: export is defined
-        delegate_to: localhost
