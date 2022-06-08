@@ -30,7 +30,7 @@
       - name: store export to local file
         ansible.builtin.copy:
           content: "{{ export.stdout }}"
-          dest: "/tmp/{{ inventory_hostname }}.config"
+          dest: "{{ inventory_hostname }}.config"
         when: export is defined
         delegate_to: localhost
 
@@ -48,6 +48,6 @@
       - name: store export to local file
         ansible.builtin.copy:
           content: "{{ export.stdout }}"
-          dest: "/tmp/{{ inventory_hostname }}.config"
+          dest: "{{ inventory_hostname }}.config"
         when: export is defined
         delegate_to: localhost
