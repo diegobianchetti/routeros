@@ -30,6 +30,7 @@
       - name: store export to local file
         ansible.builtin.copy:
           content: "{{ export.stdout }}"
-          dest: "/tmp/{{ inventory_hostname }}.config"
+          dest: "/home/solis/.ansible/tmp/{{ inventory_hostname }}.config"
           backup: yes
+        when: export is defined
         delegate_to: localhost
