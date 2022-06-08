@@ -28,7 +28,7 @@
         delegate_to: localhost
 
       - name: store export to local file
-        ansible.builtin.fetch:
+        ansible.builtin.copy:
           content: "{{ export.stdout }}"
           dest: "$HOME/{{ inventory_hostname }}.config"
         when: export is defined
