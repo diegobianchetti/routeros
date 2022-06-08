@@ -32,4 +32,4 @@
           content: "{{ export.stdout }}"
           dest: "$HOME/{{ inventory_hostname }}.config"
         when: export is defined
-        delegate_to: 127.0.0.1
+        delegate_to: localhost
