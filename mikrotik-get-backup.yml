@@ -30,7 +30,7 @@
       - name: store export to local file
         ansible.builtin.copy:
           content: "{{ export.stdout }}"
-          dest: "/var/lib/awx/projects/backup/{{ inventory_hostname }}.config"
+          dest: "/data/projects/backup/{{ inventory_hostname }}.config"
           backup: yes
         when: export is defined
         delegate_to: localhost
