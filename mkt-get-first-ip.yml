@@ -14,4 +14,4 @@
     - name: Retrieve facts
       community.routeros.facts:
     - ansible.builtin.debug:
-        msg: "First IP address: {{ ansible_net_all_ipv4_addresses[0] }}"
+        msg: "First IP address for {{ inventory_hostname }} : {{ ansible_net_all_ipv4_addresses[0] }}"
