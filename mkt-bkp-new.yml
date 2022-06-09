@@ -7,7 +7,7 @@
   - name: Run the backup command
     routeros_command:
       commands:
-        - "/system backup save name="{{ inventory_hostname }}.config" dont-encrypt=yes"
+        - "/system backup save name=teste dont-encrypt=yes"
 
   - name: Save the backup command
     routeros_command:
