@@ -9,11 +9,11 @@
       commands:
         - "/system backup save name="{{ inventory_hostname }}.config" dont-encrypt=yes"
 
-  - name: Save backup to local file
-    ansible.builtin.copy:
-      src: "/{{ inventory_hostname }}.config"
-      dest: "$HOME/{{ inventory_hostname }}.config"
-    delegate_to: localhost
+  - name: Save the backup command
+    routeros_command:
+      commands:
+        - "tool fetch address=192.168.128.82 src-path=pub/teste.backup mode=ftp upload=yes user=solis password=teste123 dst-path=teste123"
+
 
 #  - name: Delete the backup file on the router
 #    routeros_command:
