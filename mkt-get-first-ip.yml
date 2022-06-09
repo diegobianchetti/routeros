@@ -2,15 +2,6 @@
 - hosts: all
   gather_facts: false
   tasks:
-    - name: Run a command
-      community.routeros.command:
-        commands:
-          - /system resource print
-      register: system_resource_print
-    - name: Print its output
-      ansible.builtin.debug:
-        var: system_resource_print.stdout_lines
-
     - name: Retrieve facts
       community.routeros.facts:
     - ansible.builtin.debug:
