@@ -1,5 +1,5 @@
 # routeros
-Coleção de *ansible playbooks* para gerenciamento de Roteadores MIKROTIK utilizando AnsibleAWX
+Coleção de **playbooks** para gerenciamento de Roteadores MIKROTIK utilizando *AnsibleAWX* e *Community RouterOS Collection*
 
 
 ### adicionando hostnames sem serviço de DNS
