@@ -12,7 +12,7 @@
   - name: Save the backup command
     routeros_command:
       commands:
-        - "tool fetch address=192.168.128.82 src-path={{ inventory_hostname }}.backup mode=ftp upload=yes user=solis password=teste123 dst-path={{ inventory_hostname }}.backup"
+        - "tool fetch address={{ ftp_server }} src-path={{ inventory_hostname }}.backup mode=ftp upload=yes user={{ ftp_user }} password={{ ftp_pass }} dst-path={{ inventory_hostname }}.backup"
 
 
   - name: Delete the backup file on the router
