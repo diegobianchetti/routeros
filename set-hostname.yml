@@ -1,7 +1,8 @@
 ---
-## tasks file for system
-
-- name: Set hostname
-  routeros_command:
-    commands:
-      - /system identity set name="{{ inventory_hostname }}"
+- hosts: all
+  gather_facts: false
+  tasks:
+    - name: Set hostname
+      routeros_command:
+        commands:
+          - /system identity set name="{{ inventory_hostname }}"
