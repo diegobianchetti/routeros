@@ -1,4 +1,4 @@
-# mngm-mikrotik
+# routeros
 Coleção de **playbooks** para gerenciamento de Roteadores MIKROTIK utilizando *AnsibleAWX* e *Community RouterOS Collection*
 
 ## Requisitos para utilização dos scripts via AWX
