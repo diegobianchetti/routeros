@@ -1,0 +1,30 @@
+
+---
+- hosts: all
+  gather_facts: false
+  tasks:
+  # IMPORTANTE: verificar as variáveis no template antes de executar este playbook!!
+  #
+  # (abaixo EXEMPLO, importante respeitar as aspas simples e duplas para inserir comentário com espacos entre palavras)
+  #
+  # NETofINTERFACE: 192.168.0.0/16
+  # PORTofSERVICE: 80
+  # PROTO: tcp
+  # ACT: reject
+  # CHAIN: input
+  # COMMENTofRULE: '"bloqueio porta 80"'
+  #
+  - name: Get IP address CIDR
+    routeros_command:
+      commands:
+        - "{ :local NETofINTERFACE {{ NETofINTERFACE }}; :local GETIPADDRESS [/ip address get [ find where address in $NETofINTERFACE ]]; :global IPcidrADDRESS [:pick $GETIPADDRESS 2]; }"       
+
+  - name: Getting IP from CIDR IP block
+    routeros_command:
+      commands:
+        - "{ :global IPADDRESS [:pick $IPcidrADDRESS 0 [:find $IPcidrADDRESS / ]]; }"
+
+  - name: Adding a new firewall filter rule
+    routeros_command:
+      commands:
+        - "{ :local PORTofSERVICE {{ PORTofSERVICE }}; :local PROTO {{ PROTO }}; :local ACT {{ ACT }}; :local CHAIN {{ CHAIN }}; :local COMMENTofRULE {{ COMMENTofRULE }}; :put [/ip firewall filter add dst-address=$IPADDRESS port=$PORTofSERVICE protocol=$PROTO action=$ACT chain=$CHAIN comment=$COMMENTofRULE]; }"
